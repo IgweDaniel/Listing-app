@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Nav />
-    <div class="page-rest"></div>
+    <Header />
+    <!-- <div class="page-rest"></div> -->
     <main>
       <slot></slot>
     </main>
@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import Nav from "./Nav.vue";
+import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 export default {
-  components: { Footer, Nav }
+  components: { Footer, Header }
 };
 </script>
 

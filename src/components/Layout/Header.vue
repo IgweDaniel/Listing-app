@@ -35,20 +35,22 @@
           </ul>
         </div>
       </div>
-      <div class="secondary-nav container">
-        <div class="logo right-align">
-          Daniel's List
+      <div class="secondary-nav-wrapper" ref="secNav">
+        <div class="secondary-nav container">
+          <div class="logo right-align">
+            Daniel's List
+          </div>
+          <ul class="left-align">
+            <li><router-link to="/">Home</router-link></li>
+            <li><router-link to="/explore">Explore</router-link></li>
+            <li><router-link to="/contact">Explore</router-link></li>
+            <li>
+              <router-link to="/frequently-asked-questions">FAQ</router-link>
+            </li>
+            <li><router-link to="/pricing">Pricing</router-link></li>
+            <li><router-link to="/pricing">Like</router-link></li>
+          </ul>
         </div>
-        <ul class="left-align">
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/explore">Explore</router-link></li>
-          <li><router-link to="/contact">Explore</router-link></li>
-          <li>
-            <router-link to="/frequently-asked-questions">FAQ</router-link>
-          </li>
-          <li><router-link to="/pricing">Pricing</router-link></li>
-          <li><router-link to="/pricing">Like</router-link></li>
-        </ul>
       </div>
     </nav>
   </header>
@@ -61,12 +63,16 @@ export default {
   components: { IconAddUser, IconPlus },
   methods: {
     updateScrollState(e) {
-      if (e.currentTarget.scrollY > 23) {
+      if (e.currentTarget.scrollY > 5) {
         this.$refs.header.classList.add("has-scrolled");
       } else this.$refs.header.classList.remove("has-scrolled");
     }
   },
   mounted() {
+    this.$refs.secNav.addEventListener("transitionend", e => {
+      console.log(e.currentTarget);
+      e.currentTarget.style.position = "fixed";
+    });
     window.addEventListener("scroll", this.updateScrollState);
   }
 };
@@ -74,10 +80,10 @@ export default {
 
 <style scoped>
 header {
-  position: fixed;
-  top: 0;
+  /* position: fixed; */
+  /* top: 0; */
   width: 100%;
-  background: #fff;
+  /* background: #fff; */
 
   height: 60px;
   height: var(--nav-height);
@@ -85,7 +91,25 @@ header {
 }
 
 header.has-scrolled {
+  /* box-shadow: 0 2px 6px rgba(117, 78, 78, 0.12); */
+}
+
+header.has-scrolled .secondary-nav-wrapper {
+  /* top: -42px; */
+  transform: translateY(-43px);
+
+  /* width: 100%; */
+  /* background: blueviolet; */
   box-shadow: 0 2px 6px rgba(117, 78, 78, 0.12);
+}
+.secondary-nav-wrapper {
+}
+.secondary-nav-wrapper {
+  width: 100%;
+  /* position: fixed; */
+  background: #fff;
+  transition: transform 0.2s ease-in, color;
+  z-index: 1000;
 }
 
 .primary-nav,

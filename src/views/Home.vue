@@ -39,7 +39,7 @@ export default {
 
 <style scoped>
 .hero {
-  height: 250px;
+  height: 270px;
   padding: 60px;
   background: url("../assets/home-3-banner-bg.jpg");
   background-color: #dfe8ef;
@@ -52,14 +52,14 @@ export default {
 }
 .hero h3 {
   font-family: "Satisfy", cursive;
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 15px;
   font-weight: 400;
   text-align: center;
 }
 .hero h2 {
-  font-size: 20px;
-  margin: 0 0 30px;
+  font-size: 25px;
+  margin: 0 0 20px;
   text-align: center;
   text-transform: capitalize;
   font-family: "Poppins";

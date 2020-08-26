@@ -63,7 +63,7 @@ a {
 .icon-detail .icon {
   width: 30%;
   max-width: 24px;
-  display: block;
+  /* display: flex; */
 }
 .icon-detail .text {
   display: block;
@@ -75,11 +75,33 @@ a {
   width: 90%;
   margin: 0 auto;
 }
+
+.avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.clickable {
+  cursor: pointer;
+}
 button {
   box-shadow: none;
   border: none;
   outline: none;
 }
+.shadow {
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
 .button {
   background: #f64e54;
   display: flex;
@@ -95,7 +117,9 @@ button {
   font-size: 15px;
   cursor: pointer;
 }
-.button:hover,
+.button:hover {
+  /* border: 2px solid #2c3e50; */
+}
 .button:active {
   border: 2px solid #000;
 }

@@ -1,40 +1,44 @@
 <template>
   <div class="listing">
-    <div class="listing-image">
-      <img :src="listing.imgurl" :alt="listing.name" />
-    </div>
-    <div class="listing-info">
-      <div class="meta">
-        <span class="status" :class="listing.status">{{ listing.status }}</span>
-        <span class="category">{{ listing.category }}</span>
+    <router-link :to="{ name: 'Listing', params: { id: listing.id } }">
+      <div class="listing-image">
+        <img :src="listing.imgurl" :alt="listing.name" />
       </div>
-      <router-link to="/listing/:id">
-        {{ listing.name }}
-      </router-link>
-      <div class="contact">
-        <div class="location icon-detail">
-          <span class="icon">
-            <i class="fas fa-map-marker-alt"></i>
-          </span>
-          <span class="text">
-            {{ listing.location }}
-          </span>
+      <div class="listing-info">
+        <div class="meta">
+          <span class="status" :class="listing.status">{{
+            listing.status
+          }}</span>
+          <span class="category">{{ listing.category }}</span>
         </div>
-        <div class="phone  icon-detail">
-          <span class="icon">
-            <i class="fas fa-phone-alt"></i>
-          </span>
-          <span class="text">
-            {{ listing.phone }}
-          </span>
+        <router-link to="/listing/:id">
+          {{ listing.name }}
+        </router-link>
+        <div class="contact">
+          <div class="location icon-detail">
+            <span class="icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </span>
+            <span class="text">
+              {{ listing.location }}
+            </span>
+          </div>
+          <div class="phone  icon-detail">
+            <span class="icon">
+              <i class="fas fa-phone-alt"></i>
+            </span>
+            <span class="text">
+              {{ listing.phone }}
+            </span>
+          </div>
+        </div>
+        <div class="ratings">
+          <i class="fas fa-star" v-for="i in 5" :key="i"></i>
+          <!-- {{ listing.rating }} -->
+          <!-- {{ rating[0] }} -->
         </div>
       </div>
-      <div class="ratings">
-        <i class="fas fa-star" v-for="i in 5" :key="i"></i>
-        <!-- {{ listing.rating }} -->
-        <!-- {{ rating[0] }} -->
-      </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -53,6 +57,8 @@ export default {
 <style scoped>
 .listing {
   height: 100%;
+  /* width: 100%; */
+  /* overflow: hidden; */
   cursor: pointer;
 }
 .listing-info {
@@ -72,7 +78,11 @@ export default {
   /* justify-content: center; */
 }
 .listing-info .contact .location {
-  margin-right: 50px;
+  /* margin-right: 50px; */
+  width: 48%;
+}
+.listing-info .contact .phone {
+  width: 48%;
 }
 .listing-info .icon-detail .icon {
   margin-right: 5px;
@@ -81,6 +91,7 @@ export default {
   font-size: 13px;
   color: #262626;
   font-weight: 500;
+  justify-content: space-between;
 }
 .listing-info .contact .icon {
   color: #914669;
